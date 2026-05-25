@@ -1,0 +1,296 @@
+/* ================= VARIABLES & RESET ================= */
+:root {
+    --bg-dark: #050505;
+    --gold-main: #ffae00;
+    --gold-glow: rgba(255, 174, 0, 0.5);
+    --gold-light: #ffd700;
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    --glass-bg: rgba(20, 20, 20, 0.6);
+    --glass-border: rgba(255, 174, 0, 0.2);
+    --font-heading: 'Orbitron', sans-serif;
+    --font-text: 'Rajdhani', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= VARIABLES & RESET ================= */
+:root {
+    --bg-dark: #050505; /* Ini tetap biarkan untuk referensi warna lain */
+    /* ... variabel lain ... */
+}
+
+/* ... reset bintang (*) ... */
+
+body {
+    /* === BAGIAN YANG DIUBAH === */
+    /* Ganti URL_GAMBAR_BACKGROUND_HITAM_ANDA dengan URL gambar pilihanmu */
+    background-image: url('https://i.imgur.com/hCKYQ8S.jpeg'); 
+    
+    /* Pengaturan agar gambar menutupi penuh dan rata tengah */
+    background-size: cover;          /* Gambar meregang pas layar */
+    background-position: center;     /* Gambar rata tengah */
+    background-repeat: no-repeat;    /* Gambar tidak mengulang */
+    background-attachment: fixed;    /* Gambar diam saat di-scroll (premium feel) */
+    
+    /* Fallback jika gambar gagal dimuat, tetap pakai warna hitam gelap */
+    background-color: var(--bg-dark); 
+    /* ========================= */
+
+    color: var(--text-main);
+    font-family: var(--font-text);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Bagian .bg-grid JANGAN DIUBAH, biarkan seperti ini agar tetap muncul di atas gambar */
+.bg-grid {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: -2; /* Pastikan z-index ini lebih tinggi dari body tapi lebih rendah dari konten */
+}
+
+/* ================= CUSTOM SCROLLBAR ================= */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--gold-main);
+    border-radius: 4px;
+}
+
+/* ================= BACKGROUND EFFECTS ================= */
+.bg-grid {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: -2;
+}
+.bg-glow {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw; height: 60vw;
+    background: radial-gradient(circle, rgba(255,174,0,0.08) 0%, rgba(5,5,5,0) 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ================= LOADING SCREEN ================= */
+.loader-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--bg-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+.spinner {
+    width: 50px; height: 50px;
+    border: 3px solid transparent;
+    border-top-color: var(--gold-main);
+    border-bottom-color: var(--gold-light);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+.loader-container p { font-family: var(--font-heading); font-size: 1.2rem; color: var(--gold-main); letter-spacing: 2px; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* ================= HEADER / NAVBAR ================= */
+header {
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0; z-index: 100;
+    background: linear-gradient(to bottom, rgba(5,5,5,0.9), transparent);
+}
+.logo-text { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; }
+.logo-text span { color: var(--gold-main); }
+.music-btn {
+    background: transparent;
+    border: 1px solid var(--gold-main);
+    color: var(--gold-main);
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.music-btn:hover { background: var(--gold-main); color: var(--bg-dark); box-shadow: 0 0 15px var(--gold-glow); }
+
+/* ================= MAIN LAYOUT & CARDS ================= */
+#app-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 80px 20px 20px 20px;
+}
+.page-section {
+    width: 100%; max-width: 600px;
+    display: none;
+    animation: fadeUp 0.6s ease forwards;
+}
+.page-section.active { display: block; }
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* ================= WELCOME PAGE ================= */
+.main-logo { width: 220px; margin-bottom: 35px; filter: drop-shadow(0 0 15px var(--gold-glow)); }
+.float-anim { animation: float 3s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+h1 { font-family: var(--font-heading); font-size: 2rem; color: #fff; margin-bottom: 10px; text-transform: uppercase; }
+.subtitle { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 20px; }
+.status-badge {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--gold-main);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--gold-light);
+}
+.dot {
+    display: inline-block; width: 10px; height: 10px;
+    background-color: #00ff00; border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 10px #00ff00;
+    animation: blink 1.5s infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+/* ================= BUTTONS ================= */
+.btn-glowing {
+    background: linear-gradient(45deg, var(--gold-main), #ff8c00);
+    color: #000;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 20px var(--gold-glow);
+    text-transform: uppercase;
+}
+.btn-glowing:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px var(--gold-main);
+}
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--gold-main);
+    color: var(--gold-main);
+    font-family: var(--font-heading);
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-outline:hover { background: var(--gold-main); color: #000; }
+.btn-disabled {
+    background: #333; color: #777;
+    font-family: var(--font-heading);
+    padding: 15px; border: none; border-radius: 10px;
+    cursor: not-allowed; transition: 0.3s;
+}
+.w-100 { width: 100%; }
+.mt-20 { margin-top: 20px; }
+
+/* ================= SYARAT & MODAL ================= */
+.syarat-img { width: 320%; border-radius: 0px; border: 0px solid var(--glass-border); margin-top: 15px; }
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8); backdrop-filter: blur(5px);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 1000; padding: 20px; opacity: 0; visibility: hidden; transition: 0.3s;
+}
+.modal-overlay.show { opacity: 1; visibility: visible; }
+.modal-content { max-width: 500px; width: 100%; padding: 0; overflow: hidden; display: flex; flex-direction: column; max-height: 80vh; text-align: left;}
+.modal-header { padding: 20px; border-bottom: 1px solid var(--glass-border); background: rgba(0,0,0,0.5); }
+.modal-header h3 { font-family: var(--font-heading); color: var(--gold-main); }
+.progress-container { width: 100%; height: 4px; background: #222; margin-top: 10px; border-radius: 2px; }
+.progress-bar { height: 100%; background: var(--gold-main); width: 0%; transition: width 0.2s; }
+.modal-body { padding: 20px; overflow-y: auto; color: #ddd; font-size: 1.1rem; }
+.rules-list { list-style: none; }
+.rules-list li { margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); }
+.rules-list i { color: var(--gold-main); margin-right: 10px; width: 20px; }
+.scroll-warning { text-align: center; color: var(--gold-main); font-weight: bold; margin-top: 20px; animation: float 2s infinite; }
+.modal-footer { padding: 20px; border-top: 1px solid var(--glass-border); background: rgba(0,0,0,0.5); }
+
+/* ================= FORM ================= */
+.form-card { text-align: left; }
+.form-card h2 { font-family: var(--font-heading); color: var(--gold-main); text-align: center; margin-bottom: 5px; }
+.form-desc { text-align: center; color: var(--text-muted); margin-bottom: 25px; }
+.input-group { margin-bottom: 15px; }
+.input-group label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 1.1rem; }
+.input-group label i { color: var(--gold-main); margin-right: 5px; }
+input, textarea {
+    width: 100%; padding: 12px 15px;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid #333;
+    border-radius: 8px; color: #fff;
+    font-family: var(--font-text); font-size: 1.1rem;
+    transition: 0.3s; outline: none;
+}
+input:focus, textarea:focus { border-color: var(--gold-main); box-shadow: 0 0 10px rgba(255,174,0,0.3); }
+.row-group { display: flex; gap: 15px; }
+.row-group .input-group { flex: 1; }
+input[type="file"] { padding: 8px; }
+
+/* Image Preview */
+.image-preview {
+    width: 100%; height: 150px;
+    border: 2px dashed #444; border-radius: 8px;
+    margin-top: 10px;
+    display: flex; justify-content: center; align-items: center;
+    background-size: cover; background-position: center;
+    color: #666; font-weight: bold; overflow: hidden;
+}
+
+/* ================= SUCCESS PAGE ================= */
+.success-icon { font-size: 5rem; color: var(--gold-main); margin-bottom: 20px; animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+@keyframes popIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+.success-text { font-size: 1.1rem; line-height: 1.6; color: #ddd; margin-top: 15px; }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 480px) {
+    .glass-card { padding: 25px 20px; }
+    h1 { font-size: 1.5rem; }
+    .row-group { flex-direction: column; gap: 0; }
+}

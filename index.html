@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMFK JUNIOR - Recruitment</title>
+    <meta name="description" content="Official Recruitment Member FF KIPAS - GMFK JUNIOR">
+    <link class="rounded-favicon" rel="icon" href="https://i.ibb.co/zXj9Q8R/gmfk-logo.png" type="image/x-icon">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+
+    <div id="loader" class="loader-container">
+        <div class="spinner"></div>
+        <p>MOHON TUNGGU...</p>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <header>
+        <div class="logo-text">
+            <span>GMFK</span> JUNIOR
+        </div>
+        <button id="music-toggle" class="music-btn" title="Toggle Music">
+            <i class="fas fa-volume-mute"></i>
+        </button>
+    </header>
+
+    <main id="app-container">
+        <section id="welcome-section" class="page-section active">
+            <div class="glass-card welcome-card">
+                <img src="https://i.imgur.com/4JbvwdE.png" alt="GMFK Logo" class="main-logo float-anim">
+                <h1 class="glitch-text">WELCOME TO GMFK JUNIOR</h1>
+                <p class="subtitle">Official Recruitment Member FF KIPAS</p>
+                <div class="status-badge">
+                    <span class="dot"></span> STATUS: OPEN MEMBER
+                </div>
+                <button class="btn-glowing mt-20" onclick="goToSection('syarat-section')">
+                    LANJUT MENDAFTAR <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <section id="syarat-section" class="page-section hidden">
+            <div class="glass-card">
+                <h2>GMFK JUNIOR OPEN MEMBER NIH, DAFTARKAN ANDA UNTUK MRNJADI BAGIAN DARI FFKIPAS!</h2>
+                <div class="syarat-image-container">
+                    <img src="https://i.imgur.com/xZGYSxf.png" alt="FFKIPAS LOGO" class="syarat-img" style="max-width: 320px; margin: 0 auto; display: block;">
+                </div>
+                <button class="btn-glowing mt-20" onclick="openModal()">
+                    <i class="fas fa-scroll"></i> LIHAT SYARAT JOIN GMFK
+                </button>
+            </div>
+        </section>
+
+        <section id="form-section" class="page-section hidden">
+            <div class="glass-card form-card">
+                <h2>FORM PENDAFTARAN</h2>
+                <p class="form-desc">Isi data diri kamu dengan jujur dan benar.</p>
+                
+                <form id="recruitment-form">
+                    <div class="input-group">
+                        <label><i class="fab fa-tiktok"></i> Username TikTok</label>
+                        <input type="text" id="tiktok-user" placeholder="Contoh: @gmfk.junior" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fas fa-image"></i> Screenshot Akun TikTok</label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="tiktok-ss" accept="image/*" required>
+                            <div id="image-preview" class="image-preview">
+                                <span>Preview Image</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fas fa-user"></i> Nama Asli / Panggung</label>
+                        <input type="text" id="nama" placeholder="Masukkan nama kamu" required>
+                    </div>
+
+                    <div class="row-group">
+                        <div class="input-group">
+                            <label><i class="fas fa-calendar-alt"></i> Umur</label>
+                            <input type="number" id="umur" min="14" placeholder="Min 14" required>
+                        </div>
+                        <div class="input-group">
+                            <label><i class="fab fa-whatsapp"></i> No WhatsApp</label>
+                            <input type="number" id="whatsapp" placeholder="08xxxxxxxx" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fas fa-comment-dots"></i> Alasan Masuk GMFK</label>
+                        <textarea id="alasan" rows="4" placeholder="Sebutkan alasanmu..." required></textarea>
+                    </div>
+
+                    <button type="submit" id="btn-submit" class="btn-glowing mt-20 w-100">
+                        <span>KIRIM DATA PENDAFTARAN</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section id="success-section" class="page-section hidden">
+            <div class="glass-card success-card text-center">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>PENDAFTARAN BERHASIL!</h2>
+                <p class="success-text">
+                    Terimakasih telah mengikuti pendaftaran untuk bergabung GMFK JUNIOR. Selanjutnya data anda akan di seleksi oleh staff atau admin FF KIPAS. Jika lolos maka anda akan dihubungi oleh salah satu admin. Terimakasih.
+                </p>
+                <button class="btn-glowing mt-20" onclick="location.reload()">
+                    <i class="fas fa-home"></i> KEMBALI KE HOME
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <div id="terms-modal" class="modal-overlay hidden">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h3>SYARAT UNTUK MENJADI GMFK JUNIOR</h3>
+                <div class="progress-container">
+                    <div class="progress-bar" id="modal-progress" style="width: 100%;"></div>
+                </div>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <ul class="rules-list">
+                    <li><i class="fas fa-birthday-cake"></i> <strong>1. UMUR:</strong> Berumur minimal 14 tahun.</li>
+                    <li><i class="fas fa-id-card"></i> <strong>2. IDENTITAS:</strong> Menyertakan identitas resmi.</li>
+                    <li><i class="fab fa-tiktok"></i> <strong>3. AKUN TIKTOK:</strong> Mempunyai akun TikTok, minimal 1K followers real no suntik!</li>
+                    <li><i class="fas fa-video"></i> <strong>4. KONTEN:</strong> Memiliki konten tentang FFKIPAS minimal 10 video.</li>
+                    <li><i class="fas fa-broadcast-tower"></i> <strong>5. LIVE:</strong> Diwajibkan Live streaming, dan rajin stor hasil live streaming nya, mau mingguan ataupun bulanan.</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-lanjut-form" class="btn-glowing w-100" onclick="goToFormFromModal()">
+                    LANJUT MENDAFTAR
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
