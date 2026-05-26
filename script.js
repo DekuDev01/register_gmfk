@@ -1,5 +1,5 @@
 /* ================= KONFIGURASI WEBHOOK & BOT ================= */
-const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1508402866988257411/necVz1DOOgD5P7YSlAtP8tifTKV5xLyZIuLoAm1jbNxoD8PQgo2iHCADEpMEwK8UmYtN"; 
+const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1508782082195853333/fcOHObm9YFiRK_VvKRrmBVb-XKfGfSh0Cr3iyfBwyG_36i7q9KexQXgojOllpoMiM6VZ"; 
 const TELEGRAM_BOT_TOKEN = "ISI_TOKEN_BOT_TELEGRAM_KAMU";
 const TELEGRAM_CHAT_ID = "ISI_CHAT_ID_TELEGRAM_KAMU";
 
