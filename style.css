@@ -288,6 +288,70 @@ input[type="file"] { padding: 8px; }
 @keyframes popIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
 .success-text { font-size: 1.1rem; line-height: 1.6; color: #ddd; margin-top: 15px; }
 
+/* ================= RULES & BENEFITS ================= */
+.rules-section {
+    margin-bottom: 24px;
+}
+
+.rules-section h4 {
+    font-family: var(--font-heading);
+    color: var(--gold-main);
+    font-size: 1.05rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+}
+
+.rules-section h4 i {
+    margin-right: 8px;
+}
+
+.benefits-section {
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+.rules-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.rules-list li i {
+    flex: 0 0 20px;
+    margin-right: 0;
+    margin-top: 3px;
+}
+
+/* ================= COPY DATA ================= */
+.copy-data-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+}
+
+#copy-data {
+    min-height: 190px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.redirect-info {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-top: 12px;
+}
+
+#copy-data-btn {
+    color: var(--gold-main);
+}
+
+#copy-data-btn:hover {
+    color: #000;
+}
+
 /* ================= RESPONSIVE ================= */
 @media (max-width: 480px) {
     .glass-card { padding: 25px 20px; }

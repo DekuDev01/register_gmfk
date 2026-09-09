@@ -25,7 +25,7 @@
     </div>
 
     <audio id="bg-music" loop>
-        <source src="https://mp3tourl.com/audio/1779762169593-43ceb735-44c9-4438-bc8f-5757821d809b.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
     <header>
@@ -120,10 +120,19 @@
                 </div>
                 <h2>PENDAFTARAN BERHASIL!</h2>
                 <p class="success-text">
-                    Terimakasih telah mengikuti pendaftaran untuk bergabung GMFK JUNIOR. Selanjutnya data anda akan di seleksi oleh staff atau admin FF KIPAS. Jika lolos maka anda akan dihubungi oleh salah satu admin. Terimakasih.
+                    Data pendaftaran kamu sudah diterima. Silakan salin data di bawah lalu tempel secara manual di grup WhatsApp GMFK JUNIOR.
                 </p>
-                <button class="btn-glowing mt-20" onclick="location.reload()">
-                    <i class="fas fa-home"></i> KEMBALI KE HOME
+
+                <div class="copy-data-box">
+                    <textarea id="copy-data" readonly placeholder="Data pendaftaran akan muncul di sini..."></textarea>
+                    <button id="copy-data-btn" class="btn-outline w-100 mt-20" type="button" onclick="copyRegistrationData()">
+                        <i class="fas fa-copy"></i> SALIN DATA
+                    </button>
+                    <p id="redirect-info" class="redirect-info"></p>
+                </div>
+
+                <button class="btn-glowing mt-20 w-100" type="button" onclick="joinWhatsappGroup()">
+                    <i class="fab fa-whatsapp"></i> SALIN & JOIN GRUP
                 </button>
             </div>
         </section>
@@ -138,13 +147,25 @@
                 </div>
             </div>
             <div class="modal-body" id="modal-body">
-                <ul class="rules-list">
-                    <li><i class="fas fa-birthday-cake"></i> <strong>1. UMUR:</strong> Berumur minimal 14 tahun.</li>
-                    <li><i class="fas fa-id-card"></i> <strong>2. IDENTITAS:</strong> Menyertakan identitas resmi.</li>
-                    <li><i class="fab fa-tiktok"></i> <strong>3. AKUN TIKTOK:</strong> Mempunyai akun TikTok, minimal 1K followers real no suntik!</li>
-                    <li><i class="fas fa-video"></i> <strong>4. KONTEN:</strong> Memiliki konten tentang FFKIPAS minimal 10 video.</li>
-                    <li><i class="fas fa-broadcast-tower"></i> <strong>5. LIVE:</strong> Diwajibkan Live streaming, dan rajin stor hasil live streaming nya, mau mingguan ataupun bulanan.</li>
-                </ul>
+                <div class="rules-section">
+                    <h4><i class="fas fa-list-check"></i> RULES</h4>
+                    <ul class="rules-list">
+                        <li><i class="fas fa-cake-candles"></i> <strong>1. UMUR 14+</strong></li>
+                        <li><i class="fab fa-tiktok"></i> <strong>2. WAJIB PUNYA AKUN TIKTOK</strong></li>
+                        <li><i class="fas fa-users"></i> <strong>3. FOLLOWERS MINIMAL 250</strong></li>
+                        <li><i class="fas fa-handshake"></i> <strong>4. ATTITUDE BAIK/SOPAN</strong></li>
+                        <li><i class="fas fa-bullhorn"></i> <strong>5. WAJIB PROMOSI FF KIPAS</strong></li>
+                    </ul>
+                </div>
+
+                <div class="rules-section benefits-section">
+                    <h4><i class="fas fa-gift"></i> KEUNTUNGAN</h4>
+                    <ul class="rules-list">
+                        <li><i class="fas fa-crown"></i> <strong>1. AKSES VIP SELAMA JADI BAGIAN GMFK</strong></li>
+                        <li><i class="fas fa-user-group"></i> <strong>2. BISA NAMBAH BANYAK TEMAN</strong></li>
+                        <li><i class="fas fa-address-book"></i> <strong>3. BISA PUNYA BANYAK KENALAN</strong></li>
+                    </ul>
+                </div>
             </div>
             <div class="modal-footer">
                 <button id="btn-lanjut-form" class="btn-glowing w-100" onclick="goToFormFromModal()">
@@ -153,6 +174,15 @@
             </div>
         </div>
     </div>
+
+
+    <!-- ============================================================
+         AD NETWORK
+         Dua zone iklan dari Profitablerate CPM Network.
+         Diletakkan di akhir BODY agar tidak menghambat loading utama.
+         ============================================================ -->
+    <script src="https://pl31264929.profitableratecpmnetwork.com/56/f1/b4/56f1b4f3c4e2332262db8fca88b44c8e.js"></script>
+    <script src="https://pl31264930.profitableratecpmnetwork.com/8f/ed/8e/8fed8eb15136071b783ca2cc3ee74bc0.js"></script>
 
     <script src="script.js"></script>
 </body>
